@@ -8,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class LayoytPageComponent {
 
+  public sidebarItems = [
+    { label: 'Listado', icon: 'label', url: './list'},
+    { label: 'Anadir', icon: 'add', url: './new-hero'},
+    { label: 'Buscar', icon: 'search', url: './search'},
+  ]
+
 }
