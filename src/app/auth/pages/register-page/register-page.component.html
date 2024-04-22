@@ -1,27 +1,30 @@
 <div class="flex flex-column">
-  <span class="text-lg mb-4">Registro</span>
+  <h1 class="text-lg mb-4 text-center">Registro</h1>
 
-  <mat-form-field>
-    <mat-label>Usuario</mat-label>
-    <input type="text" matInput placeholder="Nombre de Usuario" />
-  </mat-form-field>
+  <mat-divider class="mb-2"></mat-divider>
+  <form class="flex flex-column" [formGroup]="registerForm" action="">
+    <mat-form-field>
+      <mat-label>Nombre</mat-label>
+      <input type="text" required formControlName="userName" matInput placeholder="Nombre de Usuario" />
+    </mat-form-field>
 
-  <mat-form-field>
-    <mat-label>Nombre</mat-label>
-    <input type="text" matInput placeholder="Nombre" />
-  </mat-form-field>
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input type="text" required formControlName="email" matInput placeholder="Email" />
+    </mat-form-field>
 
-  <mat-form-field>
-    <mat-label>Contrasena</mat-label>
-    <input type="text" matInput placeholder="Contrasena" />
-  </mat-form-field>
+    <mat-form-field>
+      <mat-label>Contrasena</mat-label>
+      <input type="text" required formControlName="password" matInput placeholder="Contrasena" />
+    </mat-form-field>
 
-  <button mat-button mat-flat-button color="primary">
-    <mat-icon>save</mat-icon>
-   Crear cuenta
-  </button>
+    <button mat-button mat-flat-button color="primary" (click)="register()">
+      <mat-icon>save</mat-icon>
+      Crear cuenta
+    </button>
 
-  <div class="flex justify-content-end mt-5">
-    <a routerLink="/auth/login">Back to login</a>
-  </div>
+    <div class="flex justify-content-end mt-5">
+      <a routerLink="/auth/login">Back to login</a>
+    </div>
+  </form>
 </div>

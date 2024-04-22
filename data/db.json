@@ -2,8 +2,57 @@
   "users": [
     {
       "id": 1,
-      "user": "John Doe",
-      "email": "john.due@gmail.com"
+      "userName": "John Doe",
+      "email": "john2.due@gmail.com",
+      "password": "123456"
+    },
+    {
+      "id": 2,
+      "userName": "Raynel Feliz",
+      "email": "theraynel@gmail.com",
+      "password": "12345"
+    },
+    {
+      "id": 3,
+      "userName": "Raynel Feliz",
+      "email": "theraynel@gmail.com",
+      "password": "12345"
+    },
+    {
+      "id": 4,
+      "userName": "afrwfrfwr",
+      "email": "theraynel@gmail.com",
+      "password": "232224"
+    },
+    {
+      "id": 5,
+      "userName": "dwfwrfrew",
+      "email": "theraynel@gmail.com",
+      "password": "1214"
+    },
+    {
+      "id": 6,
+      "userName": "rfvdfvbgd",
+      "email": "theraynel@gmail.com",
+      "password": "3424425"
+    },
+    {
+      "id": 7,
+      "userName": "qfrrfrrgg",
+      "email": "theraynel@gmail.com",
+      "password": "133242"
+    },
+    {
+      "id": 8,
+      "userName": "afwrfeetg",
+      "email": "theraynel@gmail.com",
+      "password": "323324"
+    },
+    {
+      "userName": "John Doe",
+      "email": "theraynel23@gmail.com",
+      "password": "123456",
+      "id": 9
     }
   ],
   "heroes": [
