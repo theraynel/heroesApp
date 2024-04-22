@@ -2,7 +2,7 @@ import { Injectable, Pipe } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environments } from 'src/environments/environments';
 import { User } from '../interfaces/user.interface';
-import { Observable, catchError, map, of, tap } from 'rxjs';
+import { Observable, catchError, map, of, pipe, tap } from 'rxjs';
 
 @Injectable({providedIn: 'root'})
 export class AuthService {
@@ -36,40 +36,11 @@ export class AuthService {
   }
 
   register(user: User): Observable<User> {
-
-     this.validatedEmailExists(user.email)
-     .subscribe(
-       userRegister => {
-        console.log("Super User", userRegister)
-       if ( userRegister?.length ) return of("El Email ya existe en la base de Datos!")
-
-      return this.http.post<User>(`${ this.baseUrl }/users`, user);
-
-      }
-    );
-
-    //  console.log("userExists", userExists);
-    //  console.log("this.userRegister", this.userRegister);
-    //  console.log("rUser", this.rUser);
-
-
-    //  if ( this.userRegister?.length ) throw new Error('')
-
-     return of(user);
-
-  }
-
-  validatedEmailExists(email: string): Observable<User[] | undefined> {
-    const url = `${ this.baseUrl }/users?q=${email}`;
-    console.log("url",url);
-    console.log("email",email);
-
-
-    return this.http.get<User[]>(`${ this.baseUrl }/users?q=${email}`)
-    .pipe(
-      tap( user => this.user = user ),
-      catchError( err => of([]) )
-    )
+      return this.http.post<User>(`${ this.baseUrl }/users`, user)
+        .pipe(
+          tap( user => user ),
+          catchError( err => of() )
+        );
   }
 
   checkAuthntication(): Observable<boolean> {

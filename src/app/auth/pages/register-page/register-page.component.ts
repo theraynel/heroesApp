@@ -34,23 +34,18 @@ export class RegisterPageComponent {
 
 
   register(){
-
     if ( this.registerForm.invalid ) return;
-
-    console.log("this.userRegister",this.userRegister);
-
 
     this.authService.register(this.userRegister)
     .subscribe((user) => {
       // TODo: montrar snackbar y navegar a /heroes/edit/ hero.id
-      console.log("user", user);
 
       if ( user.id > 0) {
         this.router.navigate( ['/auth/login'])
         this.showSnackBar(`${ user.userName } created!`);
       }
-
-      this.showSnackBar("No se pudo Crear el Usuario");
+      else
+        this.showSnackBar("No se pudo Crear el Usuario");
 
     });
   }
