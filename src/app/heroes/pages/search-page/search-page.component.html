@@ -1,6 +1,4 @@
-
-<div class="flex flex-column p-2 ">
-
+<div class="flex flex-column p-2">
   <h3>Buscador</h3>
 
   <mat-form-field>
@@ -11,22 +9,78 @@
       [formControl]="searchInput"
       (input)="searchHero()"
       [matAutocomplete]="auto"
-    >
+    />
 
-    <mat-autocomplete autoActiveFirstOption
-       #auto="matAutocomplete"
-       (optionSelected)="onSelectedOption( $event)">
+    <mat-autocomplete
+      autoActiveFirstOption
+      #auto="matAutocomplete"
+      (optionSelected)="onSelectedOption($event)"
+    >
       <mat-option *ngFor="let hero of heroes" [value]="hero">
-        {{ hero.superhero}}
+        {{ hero.superhero }}
       </mat-option>
 
-      <mat-option *ngIf="heroes.length ===0 && searchInput.value && searchInput.value.length > 0"
-        value="">
-        No se Encontró nada con el término {{ searchInput.value}}
+      <mat-option
+        *ngIf="
+          heroes.length === 0 &&
+          searchInput.value &&
+          searchInput.value.length > 0
+        "
+        value=""
+      >
+        No se Encontró nada con el término {{ searchInput.value }}
       </mat-option>
     </mat-autocomplete>
   </mat-form-field>
 
-  {{ selectedHero | json }}
+  <mat-divider class="mb-4"></mat-divider>
 
+  <div class="grid" *ngIf="selectedHero?.id">
+    <div class="col-12 sm:col-6">
+      <mat-card>
+        <mat-card-content>
+          <form class="grid">
+            <mat-form-field class="col-12 sm:col-6">
+              <mat-label>Super héroes</mat-label>
+              <input matInput type="text" [value]="selectedHero?.superhero" />
+            </mat-form-field>
+
+            <mat-form-field class="col-12 sm:col-6">
+              <mat-label>Alter ego</mat-label>
+              <input matInput type="text" [value]="selectedHero?.alter_ego" />
+            </mat-form-field>
+
+            <mat-form-field class="col-12">
+              <mat-label>Primera Aparición </mat-label>
+              <input
+                matInput
+                type="text"
+                [value]="selectedHero?.first_appearance"
+              />
+            </mat-form-field>
+
+            <mat-form-field class="col-12">
+              <mat-label>Personajes </mat-label>
+              <input matInput type="text" [value]="selectedHero?.characters" />
+            </mat-form-field>
+
+            <mat-form-field class="col-12">
+              <mat-label>Creador </mat-label>
+              <input matInput type="text" [value]="selectedHero?.publisher" />
+            </mat-form-field>
+          </form>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <div class="col-12 sm:col-6">
+      <mat-card >
+        <img
+          [src]="selectedHero! | heroImage"
+          alt="imagen del héroe"
+          mat-card-image
+        />
+      </mat-card>
+    </div>
+  </div>
 </div>

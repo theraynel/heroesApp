@@ -19,22 +19,19 @@ export class SearchPageComponent {
   searchHero() {
     const value: string = this.searchInput.value || '';
 
-    this.heroesServices.getsuggestions( value )
-      .subscribe( heroes => {
-        this.heroes = heroes
-      });
+    this.heroesServices.getsuggestions(value).subscribe((heroes) => {
+      this.heroes = heroes;
+    });
   }
 
-  onSelectedOption(event: MatAutocompleteSelectedEvent){
+  onSelectedOption(event: MatAutocompleteSelectedEvent) {
     if (!event.option.value) {
-      this.selectedHero = undefined
+      this.selectedHero = undefined;
       return;
     }
 
     const hero: Hero = event.option.value;
     this.searchInput.setValue(hero.superhero);
-
     this.selectedHero = hero;
-
   }
 }

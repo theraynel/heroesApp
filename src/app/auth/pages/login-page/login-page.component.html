@@ -1,14 +1,16 @@
 <div class="flex flex-column">
-  <span class="text-lg mb-4">Login</span>
+  <h1 class="text-lg mb-4 text-center">Login</h1>
+  <mat-divider class="mb-2"></mat-divider>
 
+  <form class="flex flex-column" [formGroup]="loginForm" (ngSubmit)="onLogin()">
   <mat-form-field>
-    <mat-label>Usuario</mat-label>
-    <input type="text" matInput placeholder="Nombre de Usuario" />
+    <mat-label>Email</mat-label>
+    <input type="text" matInput required formControlName="email" placeholder="Email" />
   </mat-form-field>
 
   <mat-form-field>
     <mat-label>Contrasena</mat-label>
-    <input type="text" matInput placeholder="Contrasena" />
+    <input type="text" matInput required formControlName="password" placeholder="Contrasena" />
   </mat-form-field>
 
   <button
@@ -23,4 +25,5 @@
   <div class="flex justify-content-end mt-5">
     <a routerLink="/auth/new-account">Registro</a>
   </div>
+</form>
 </div>

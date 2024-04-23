@@ -4,61 +4,56 @@ import { environments } from 'src/environments/environments';
 import { User } from '../interfaces/user.interface';
 import { Observable, catchError, map, of, pipe, tap } from 'rxjs';
 
-@Injectable({providedIn: 'root'})
+@Injectable({ providedIn: 'root' })
 export class AuthService {
-
   private baseUrl = environments.baseUrl;
-  private user?: User[];
+  private user?: User;
 
-  private userRegister?: User[] = [];
+  constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient) { }
+  get currentUser(): User | undefined {
+    if (!this.user) return undefined;
 
-  get currentUser():User[]|undefined {
-     if( !this.user ) return undefined;
-
-     return structuredClone( this.user );
+    return structuredClone(this.user);
   }
 
-  get rUser():User[]|undefined {
-    if( !this.userRegister ) return undefined;
-
-    return structuredClone( this.userRegister );
- }
-
-  login( email:string, password: string): Observable<User[]> {
-   return this.http.get<User[]>(`${ this.baseUrl }/users?q=${email}&&${password}`)
+  login(email: string, password: string): Observable<User[]> {
+    return this.http
+      .get<User[]>(`${this.baseUrl}/users?q=${email}&${password}&_limit=1`)
       .pipe(
-        tap( user => this.user = user ),
-        tap( user => localStorage.setItem('token', 'Aafwfrw.fwrfgteg.wgegtgttef' )),
-        catchError( err => of() )
-      )
+        tap((user) => (this.user = user[0])),
+        tap((user) => {
+          if (user.length)
+            localStorage.setItem('token',JSON.stringify({
+              token: 'Aafwfrw.fwrfgteg.wgegtgttef',
+              email: email
+            }));
+        }),
+        catchError((err) => of())
+      );
   }
 
   register(user: User): Observable<User> {
-      return this.http.post<User>(`${ this.baseUrl }/users`, user)
-        .pipe(
-          tap( user => user ),
-          catchError( err => of() )
-        );
+    return this.http.post<User>(`${this.baseUrl}/users`, user).pipe(
+      tap((user) => user),
+      catchError((err) => of())
+    );
   }
 
   checkAuthntication(): Observable<boolean> {
-    if ( !localStorage.getItem('token') ) return of(false)
+    if (!localStorage.getItem('token')) return of(false);
 
-    const token = localStorage.getItem('token');
+    const token = JSON.parse(localStorage.getItem('token')!);
 
-    return this.http.get<User[]>(`${this.baseUrl}/users/1`)
-      .pipe(
-        tap( user => this.user = user),
-        map( user => !!user),
-        catchError( errr => of(false))
-      );
+    return this.http.get<User[]>(`${this.baseUrl}/users?q=${token.email}&_limit=1`).pipe(
+      tap((user) => (this.user = user[0])),
+      map((user) => !!user),
+      catchError((errr) => of(false))
+    );
   }
 
   logout() {
     this.user = undefined;
     localStorage.clear();
   }
-
 }

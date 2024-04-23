@@ -2,7 +2,7 @@
   <h1 class="text-lg mb-4 text-center">Registro</h1>
 
   <mat-divider class="mb-2"></mat-divider>
-  <form class="flex flex-column" [formGroup]="registerForm" action="">
+  <form class="flex flex-column" [formGroup]="registerForm" (ngSubmit)="register()">
     <mat-form-field>
       <mat-label>Nombre</mat-label>
       <input type="text" required formControlName="userName" matInput placeholder="Nombre de Usuario" />

@@ -22,7 +22,7 @@ export class LayoytPageComponent {
     private router: Router
   ){}
 
-  get user():User[] | undefined {
+  get user():User | undefined {
     return this.authService.currentUser;
   }
 
