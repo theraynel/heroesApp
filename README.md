@@ -1,5 +1,8 @@
 # HeroesApp
 
+![Esta es una imagen de ejemplo](./src/assets/img.jpg)
+
+
 ## Dev
 
 1. Clonar el proyecto
