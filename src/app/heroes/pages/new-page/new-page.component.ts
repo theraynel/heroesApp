@@ -68,6 +68,7 @@ export class NewPageComponent implements OnInit {
 
     if (this.currentHero.id) {
       this.heroServices.updateHero(this.currentHero).subscribe((hero) => {
+        this.router.navigate( ['/heroes/list'])
         this.showSnackBar(`${ hero.superhero } updated!`);
       });
 
@@ -76,7 +77,7 @@ export class NewPageComponent implements OnInit {
 
     this.heroServices.addHero(this.currentHero).subscribe((hero) => {
       // TODo: montrar snackbar y navegar a /heroes/edit/ hero.id
-      this.router.navigate( ['/heroes/edit', hero.id ])
+      this.router.navigate( ['/heroes/list', hero.id ])
       this.showSnackBar(`${ hero.superhero } created!`);
     });
   }
@@ -98,6 +99,10 @@ export class NewPageComponent implements OnInit {
          this.router.navigate(['/heroes'])
       });
 
+  }
+
+  onBackList(){
+    this.router.navigate(['/heroes']);
   }
 
   showSnackBar( message: string ):void {

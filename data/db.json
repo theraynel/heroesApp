@@ -44,7 +44,8 @@
       "publisher": "DC Comics",
       "alter_ego": "Bruce Wayne",
       "first_appearance": "Detective Comics #27",
-      "characters": "Bruce Wayne"
+      "characters": "Bruce Wayne",
+      "alt_img": null
     },
     {
       "id": "dc-superman",
@@ -52,7 +53,8 @@
       "publisher": "DC Comics",
       "alter_ego": "Kal-El",
       "first_appearance": "Action Comics #1",
-      "characters": "Kal-El"
+      "characters": "Kal-El",
+      "alt_img": null
     },
     {
       "id": "dc-flash",
@@ -60,7 +62,8 @@
       "publisher": "DC Comics",
       "alter_ego": "Jay Garrick",
       "first_appearance": "Flash Comics #1",
-      "characters": "Jay Garrick, Barry Allen, Wally West, Bart Allen"
+      "characters": "Jay Garrick, Barry Allen, Wally West, Bart Allen",
+      "alt_img": null
     },
     {
       "id": "dc-green",
@@ -68,7 +71,8 @@
       "publisher": "DC Comics",
       "alter_ego": "Alan Scott",
       "first_appearance": "All-American Comics #16",
-      "characters": "Alan Scott, Hal Jordan, Guy Gardner, John Stewart, Kyle Raynor, Jade, Sinestro, Simon Baz"
+      "characters": "Alan Scott, Hal Jordan, Guy Gardner, John Stewart, Kyle Raynor, Jade, Sinestro, Simon Baz",
+      "alt_img": null
     },
     {
       "id": "dc-arrow",
@@ -108,7 +112,8 @@
       "publisher": "DC Comics",
       "alter_ego": "Dan Garret",
       "first_appearance": "Mystery Men Comics #1",
-      "characters": "Dan Garret, Ted Kord, Jaime Reyes"
+      "characters": "Dan Garret, Ted Kord, Jaime Reyes",
+      "alt_img": null
     },
     {
       "id": "dc-black",
@@ -140,7 +145,8 @@
       "publisher": "Marvel Comics",
       "alter_ego": "Tony Stark",
       "first_appearance": "Tales of Suspense #39",
-      "characters": "Tony Stark"
+      "characters": "Tony Stark",
+      "alt_img": null
     },
     {
       "id": "marvel-thor",
@@ -164,7 +170,8 @@
       "publisher": "Marvel Comics",
       "alter_ego": "James Howlett",
       "first_appearance": "The Incredible Hulk #180",
-      "characters": "James Howlett"
+      "characters": "James Howlett",
+      "alt_img": null
     },
     {
       "id": "marvel-daredevil",

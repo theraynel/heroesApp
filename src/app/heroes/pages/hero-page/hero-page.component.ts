@@ -33,6 +33,8 @@ export class HeroPageComponent implements OnInit {
   }
 
   goBack():void {
+    console.log("prueba de que entro");
+
      this.router.navigateByUrl('heroes/list');
   }
 }

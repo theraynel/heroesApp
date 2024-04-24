@@ -10,7 +10,7 @@
   <div class="col-12 sm:col-6">
     <mat-card>
       <mat-card-content>
-        <form class="grid" [formGroup]="heroForm" (ngSubmit)="onSubmit()">
+        <form class="grid mt-1" [formGroup]="heroForm" (ngSubmit)="onSubmit()">
           <mat-form-field class="col-12 sm:col-6">
             <mat-label>Super héroes</mat-label>
             <input matInput type="text" required formControlName="superhero">
@@ -47,8 +47,9 @@
         </form>
 
         <div class="flex justify-content-between">
-          <button *ngIf="currentHero.id" (click)="onDeleteHero()" mat-flat-button color="warn">Borrar</button>
-          <span></span>
+          <button *ngIf="currentHero.id"  (click)="onDeleteHero()" mat-flat-button color="warn">Borrar</button>
+          <button *ngIf="!currentHero.id" (click)="onBackList()" mat-flat-button color="warn">Ir a la Lista</button>
+          <!-- <span></span> -->
 
           <button mat-flat-button color="primary" (click)="onSubmit()">
             <mat-icon>save</mat-icon>
@@ -60,8 +61,8 @@
   </div>
 
   <div class="col-12 sm:col-6">
-     <mat-card>
-       <img [src]="currentHero | heroImage " alt="imagen del héroe" mat-card-image>
+     <mat-card class="flex justify-content-center align-items-center py-2">
+       <img [src]="currentHero | heroImage " alt="imagen del héroe" mat-card-image width="329px" class=" border-round-lg	">
      </mat-card>
   </div>
 </div>

@@ -6,37 +6,48 @@
   </mat-grid-list>
 </ng-template>
 
-<div *ngIf="hero; else divLoading" class="grid p-2">
+<div *ngIf="hero; else divLoading" class="grid p-3">
+  <div class="col-12 sm:col-6">
+    <mat-card>
+      <mat-card-content>
+        <form class="grid mt-6">
+          <mat-form-field class="col-12 sm:col-6">
+            <mat-label>Super héroes</mat-label>
+            <input matInput readonly type="text" [value]="hero.superhero" />
+          </mat-form-field>
 
-  <mat-card class="col-12 sm:col-6">
+          <mat-form-field class="col-12 sm:col-6">
+            <mat-label>Alter ego</mat-label>
+            <input matInput readonly type="text" [value]="hero.alter_ego" />
+          </mat-form-field>
 
-    <mat-card-header>
-      <mat-card-title>{{ hero.alter_ego }}</mat-card-title>
-      <mat-card-subtitle> {{ hero.superhero }}</mat-card-subtitle>
-    </mat-card-header>
+          <mat-form-field class="col-12 mt-2">
+            <mat-label>Primera Aparición </mat-label>
+            <input matInput readonly type="text" [value]="hero.first_appearance" />
+          </mat-form-field>
 
-    <img [src]="hero | heroImage" [alt]="hero.superhero" mat-card-image>
+          <mat-form-field class="col-12 mt-2">
+            <mat-label>Personajes </mat-label>
+            <input matInput readonly type="text" [value]="hero.characters" />
+          </mat-form-field>
 
-  </mat-card>
+          <mat-form-field class="col-12 mt-2">
+            <mat-label>Creador </mat-label>
+            <input matInput readonly type="text" [value]="hero.publisher" />
+          </mat-form-field>
+        </form>
 
-  <mat-card class="col-12 sm:col-6">
+        <div class="col-12 mt-2">
+          <button mat-button color="warn" mat-flat-button (click)="goBack()"> Regresar</button>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
 
-    <mat-card-header>
-      <mat-card-title>Informacion</mat-card-title>
-      <mat-card-subtitle> {{ hero.superhero }}</mat-card-subtitle>
-    </mat-card-header>
+  <div class="col-12 sm:col-6 ">
 
-    <mat-card-content>
-       <mat-list>
-          <mat-list-item> {{hero.first_appearance}} </mat-list-item>
-          <mat-list-item> {{ hero.characters }} </mat-list-item>
-          <mat-list-item>{{ hero.publisher }}</mat-list-item>
-          <mat-list-item>{{ hero.alter_ego }}</mat-list-item>
-       </mat-list>
-
-       <button mat-button color="warn" (click)="goBack()"> Regresar</button>
-    </mat-card-content>
-
-  </mat-card>
-
+    <mat-card class="flex justify-content-center align-items-center py-2">
+      <img [src]="hero | heroImage" [alt]="hero.superhero" mat-card-image width="329px" class=" border-round-lg	">
+    </mat-card>
+  </div>
 </div>
